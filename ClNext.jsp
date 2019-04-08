@@ -13,7 +13,7 @@ body{
 }
 
 header {
-    background-image: url(D:\1images\logo.png);
+    background-image: url(https://web.archive.org/web/20171121171251im_/http://refbankers.com/images/background.png);
     background-size: cover;
     opacity: 1.0;
     height: 100px;
@@ -65,8 +65,31 @@ nav ul li a{
 }
 
 .bodycontent {
-	min-height: 668px;
+	min-height: 750px;
+	padding: 100px;
 }
+
+.bodycontent .button-s{
+	padding: 100px;
+}
+
+.button {
+    background-color: cadetblue;
+    border: none;
+    color: white;
+    padding: 150px 150px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    margin: 4px 20px;
+    cursor: pointer;
+    font-family: sans-serif;
+    border-radius: 4px;
+    border: 1px solid #666;
+}
+
+
 
 footer {
     background-image: url(https://web.archive.org/web/20171121171251im_/http://refbankers.com/images/background.png);
@@ -123,8 +146,76 @@ footer .footermenu{
 	float: right;
 }
 
-</style>
 
+
+.reg-m {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 50px;
+  width: 28%;
+  display: inline-block;
+  
+  
+}
+
+.space-s{
+	
+	display: inline-block;
+	width:33%;
+	color: transparent;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+      margin-bottom: 30px;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+      margin-bottom: 30px;
+}
+
+input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+      margin-bottom: 30px;
+}
+
+input[type=submit] {
+    width: 40%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 50px 0px 0px 0px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 26px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+</style>
 <body>
 
 <header>
@@ -141,11 +232,51 @@ footer .footermenu{
   </nav>
 </header>
 
+<!-- End of Header  -->
+
 <div class = "bodycontent">
-	<center><p style="    font-size: 50px; color:#fff;
-    position: relative;
-    top: 300px;">Coming Soon.......</p></center>
+
+<div class="space-s">
+lol
 </div>
+
+<div class="reg-m">
+
+
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.sql.*"%>
+<%
+String userid = request.getParameter("lid"); 
+String pwd = request.getParameter("psw"); 
+Class.forName("com.mysql.jdbc.Driver"); 
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
+Statement st = con.createStatement(); 
+ResultSet rs = st.executeQuery("select * from client where lid = '"+userid+"'"); 
+if(rs.next()) 
+{ 
+if(rs.getString(4).equals(pwd)) 
+{ 
+out.println("<h1>welcome</h1> "+ userid); 
+} 
+else 
+{ 
+out.println("Wrong Password"); 
+} 
+} 
+else {
+out.println("Wrong Username");
+}
+
+%>
+  
+</div>
+
+<div class="space-s">
+lol
+</div>
+
+</div>
+<!-- End of Body  -->
 
 <footer>
 

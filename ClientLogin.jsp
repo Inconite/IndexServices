@@ -225,7 +225,7 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Bank Investment Manager Login</a></li>
+    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
     <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
     <li><a href="Register.jsp">Registration</a></li>
   </ul>
@@ -241,15 +241,15 @@ lol
 </div>
 
 <div class="reg-m">
-  <form action="/action_page.php">
+  <form action="/IndexServices/ClNext.jsp">
   
  <center> <h1 style="margin-bottom:50px;">Client Login</h1></center>
   
   	<label for="lid">Login Id</label>
-    <input type="text" id="lid" name="loginid" placeholder="Login Id..">
+    <input type="text" id="lid" name="lid" placeholder="Login Id..">
     
     <label for="pass">Password</label>
-    <input type="password" id="pass" name="password" placeholder="Password..">
+    <input type="password" id="psw" name="psw" placeholder="Password..">
   
     <center><input type="submit" value="Login"></center>
   </form>

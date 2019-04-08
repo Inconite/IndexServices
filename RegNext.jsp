@@ -241,18 +241,53 @@ lol
 </div>
 
 <div class="reg-m">
-  <form action="/IndexServices/MlNext.jsp">
+
+
+<%@ page import ="java.sql.*" %>
+<%@ page import ="javax.sql.*" %>
+<%
+String lid = request.getParameter("lid"); 
+String fname = request.getParameter("fname"); 
+String lname = request.getParameter("lname"); 
+String psw = request.getParameter("psw"); 
+String role = request.getParameter("role"); 
+String age = request.getParameter("age"); 
+String gender = request.getParameter("gender"); 
+String cnumber = request.getParameter("cnumber"); 
+String email = request.getParameter("email"); 
+String address = request.getParameter("address"); 
+String zip = request.getParameter("zip"); 
+String city = request.getParameter("city"); 
+
+if(lid.equals("") || fname.equals("") ||
+		lname.equals("") || psw.equals("") ||
+		role.equals("") || age.equals("") ||
+		gender.equals("") || cnumber.equals("") ||
+		email.equals("") || zip.equals("") || city.equals("")
+		){
+	
+	out.println("Please fill in all the details");
+}
+else{
+
+Class.forName("com.mysql.jdbc.Driver"); 
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices",
+"root","root"); 
+Statement st= con.createStatement(); 
+ResultSet rs; 
+
+if(role.equals("client")){
+	int i = st.executeUpdate("insert into client values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
+}
+else{
+	int i = st.executeUpdate("insert into manager values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
+}
+
+out.println("Success");
+
+}
+%>
   
- <center> <h1 style="margin-bottom:50px;">Manager Login</h1></center>
-  
-  	<label for="lid">Login Id</label>
-    <input type="text" id="lid" name="lid" placeholder="Login Id..">
-    
-    <label for="pass">Password</label>
-    <input type="password" id="pass" name="psw" placeholder="Password..">
-  
-    <center><input type="submit" value="Login"></center>
-  </form>
 </div>
 
 <div class="space-s">

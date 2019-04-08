@@ -225,7 +225,7 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Bank Investment Manager Login</a></li>
+    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
     <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
     <li><a href="Register.jsp">Registration</a></li>
   </ul>
@@ -241,21 +241,21 @@ lol
 </div>
 
 <div class="reg-m">
-  <form action="/action_page.php">
+  <form action="/IndexServices/RegNext.jsp">
   
  <center> <h1 style="margin-bottom:50px;">User Registration From</h1></center>
   
   	<label for="lid">Login Id</label>
-    <input type="text" id="lid" name="loginid" placeholder="Login Id..">
+    <input type="text" id="lid" name="lid" placeholder="Login Id..">
   
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" name="fname" placeholder="Your name..">
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <input type="text" id="lname" name="lname" placeholder="Your last name..">
     
     <label for="pass">Password</label>
-    <input type="password" id="pass" name="password" placeholder="Password..">
+    <input type="password" id="pass" name="psw" placeholder="Password..">
 
     <label for="role">Role</label>
     <select id="role" name="role">
@@ -274,7 +274,7 @@ lol
     </select>
     
     <label for="number">Contact Number</label>
-    <input type="text" id="number" name="number" placeholder="Contact number..">
+    <input type="text" id="number" name="cnumber" placeholder="Contact number..">
     
     <label for="email">Email</label>
     <input type="email" id="email" name="email" placeholder="Your email..">
