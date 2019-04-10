@@ -241,44 +241,13 @@ lol
 </div>
 
 <div class="reg-m">
-
-
-<%@ page import="java.sql.*"%>
-<%@ page import="javax.sql.*"%>
+  
 <%
-
-String userid = request.getParameter("lid"); 
-String pwd = request.getParameter("psw"); 
-
-
-if(userid.equals("") || pwd.equals("")){
-	out.println("Please fill in all the details");
-}
-else{
-
-Class.forName("com.mysql.jdbc.Driver"); 
-java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
-Statement st = con.createStatement(); 
-ResultSet rs = st.executeQuery("select * from manager where lid = '"+userid+"'"); 
-if(rs.next()) 
-{ 
-if(rs.getString(4).equals(pwd)) 
-{ 
-	HttpSession sessiona = request.getSession();
-	session.setAttribute("user",userid);
-	session.setAttribute("psw",pwd);
-	response.sendRedirect("MDashboard.jsp");
-} 
-else 
-{
-out.println("Wrong Password"); 
-} 
-} 
-else{
-out.println("Wrong Username");
-}
-}
+session.invalidate();
 %>
+
+<h3>You have been logged out successfully....</h3>
+  
   
 </div>
 

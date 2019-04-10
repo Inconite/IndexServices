@@ -65,7 +65,7 @@ nav ul li a{
 }
 
 .bodycontent {
-	min-height: 750px;
+	min-height: 550px;
 	padding: 100px;
 }
 
@@ -283,7 +283,7 @@ else{
 	int i = st.executeUpdate("insert into manager values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
 }
 
-out.println("Success");
+out.println("Registration was successful! Now you can login.");
 
 }
 %>

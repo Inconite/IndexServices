@@ -65,7 +65,7 @@ nav ul li a{
 }
 
 .bodycontent {
-	min-height: 750px;
+	min-height: 550px;
 	padding: 100px;
 }
 
@@ -248,6 +248,12 @@ lol
 <%
 String userid = request.getParameter("lid"); 
 String pwd = request.getParameter("psw"); 
+
+if(userid.equals("") || pwd.equals("")){
+	out.println("Please fill in all the details");
+}
+else{
+
 Class.forName("com.mysql.jdbc.Driver"); 
 java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
 Statement st = con.createStatement(); 
@@ -256,7 +262,12 @@ if(rs.next())
 { 
 if(rs.getString(4).equals(pwd)) 
 { 
-out.println("<h1>welcome</h1> "+ userid); 
+
+	HttpSession sessiona = request.getSession();
+	session.setAttribute("user",userid);
+	session.setAttribute("psw",pwd);
+	response.sendRedirect("CDashboard.jsp");
+	
 } 
 else 
 { 
@@ -266,7 +277,7 @@ out.println("Wrong Password");
 else {
 out.println("Wrong Username");
 }
-
+}
 %>
   
 </div>

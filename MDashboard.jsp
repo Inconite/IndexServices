@@ -152,8 +152,9 @@ footer .footermenu{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 50px;
-  width: 28%;
+  width: 38%;
   display: inline-block;
+  min-height: 250px;
   
   
 }
@@ -161,8 +162,12 @@ footer .footermenu{
 .space-s{
 	
 	display: inline-block;
-	width:33%;
+	width:25%;
 	color: transparent;
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 10px;
+    margin: 10px;
 }
 
 input[type=text], select {
@@ -214,6 +219,9 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+button {
+    padding: 5px 20px;
+}
 
 </style>
 <body>
@@ -225,9 +233,8 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
-    <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
-    <li><a href="Register.jsp">Registration</a></li>
+    <li><a href="/IndexServices/MDashboard.jsp">Manager Dashboard</a></li>
+    <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
   </nav>
 </header>
@@ -237,7 +244,12 @@ input[type=submit]:hover {
 <div class = "bodycontent">
 
 <div class="space-s">
-lol
+<form action="/IndexServices/AddIndexes.jsp">
+<input type = "submit" value ="Add Index"/>
+</form>
+<form action="/IndexServices/AddStock.jsp">
+<input type = "submit" value ="Add Stock"/>
+</form>
 </div>
 
 <div class="reg-m">
@@ -247,43 +259,27 @@ lol
 <%@ page import="javax.sql.*"%>
 <%
 
-String userid = request.getParameter("lid"); 
-String pwd = request.getParameter("psw"); 
 
+String userid1 = (String)session.getAttribute("user");
+String pwd = (String)session.getAttribute("psw");
 
-if(userid.equals("") || pwd.equals("")){
-	out.println("Please fill in all the details");
+if(userid1 == null || pwd == null){
+	out.println("<p>You do not have access to this page. You need to be logged in first.</p>");
 }
 else{
+out.println("<h1>Welcome</h1> " + userid1 + " " + pwd);
 
-Class.forName("com.mysql.jdbc.Driver"); 
-java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
-Statement st = con.createStatement(); 
-ResultSet rs = st.executeQuery("select * from manager where lid = '"+userid+"'"); 
-if(rs.next()) 
-{ 
-if(rs.getString(4).equals(pwd)) 
-{ 
-	HttpSession sessiona = request.getSession();
-	session.setAttribute("user",userid);
-	session.setAttribute("psw",pwd);
-	response.sendRedirect("MDashboard.jsp");
-} 
-else 
-{
-out.println("Wrong Password"); 
-} 
-} 
-else{
-out.println("Wrong Username");
 }
-}
+
 %>
+
   
 </div>
 
 <div class="space-s">
-lol
+<form>
+<input type = "text" name="search" placeholder="Search" >
+</form>
 </div>
 
 </div>

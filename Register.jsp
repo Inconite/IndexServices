@@ -65,7 +65,7 @@ nav ul li a{
 }
 
 .bodycontent {
-	min-height: 750px;
+	min-height: 550px;
 	padding: 100px;
 }
 
@@ -152,7 +152,7 @@ footer .footermenu{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 50px;
-  width: 58%;
+  width: 45%;
   display: inline-block;
   
   
@@ -161,7 +161,7 @@ footer .footermenu{
 .space-s{
 	
 	display: inline-block;
-	width:17%;
+	width:24%;
 	color: transparent;
 }
 

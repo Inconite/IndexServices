@@ -6,18 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index Services</title>
 </head>
-<style>
+ <style>
 
 body{
 	background-color: #17827d;
+	background-image: url("http://refbankers.com/images/background.png");
 }
 
 header {
-    background-image: url(D:\1images\logo.png);
+    background-image: url(http://refbankers.com/images/background.png);    
     background-size: cover;
     opacity: 1.0;
     height: 100px;
-    background-color: #4dffc3;
+    background-color: #33ffbb;
     border-radius: 3px;
 }
 
@@ -65,15 +66,17 @@ nav ul li a{
 }
 
 .bodycontent {
-	min-height: 668px;
+	min-height: 640px;
+   
+	
 }
 
 footer {
-    background-image: url(https://web.archive.org/web/20171121171251im_/http://refbankers.com/images/background.png);
+    background-image: url(http://refbankers.com/images/background.png);
     background-size: cover;
     opacity: 1.0;
     height: 85px;
-    background-color: #4dffc3;
+    background-color: #33ffbb;
     border-radius: 3px;
 }
 
@@ -118,6 +121,18 @@ footer .footercontent p {
     font-weight:900;
 }
 
+input[type=submit] {
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 120px 0px 0px 0px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
 footer .footermenu{
 	width: auto;
 	float: right;
@@ -141,10 +156,17 @@ footer .footermenu{
   </nav>
 </header>
 
-<div class = "bodycontent">
-	<center><p style="    font-size: 50px; color:#fff;
-    position: relative;
-    top: 300px;">Coming Soon.......</p></center>
+<div class = "bodycontent" background="https://images.financialexpress.com/2018/04/Stock.jpg">
+	<center><p style="font-size: 110px;
+    font-family: sans-serif; text-shadow: 1px 1px 1px #222;
+    color: #fff;">Index Services</p>
+    <p style="    font-size: 30px; text-shadow: 1px 1px 1px #444;
+    font-family: sans-serif;
+    color: #fff;">Add and monitor your stocks with ease</p>
+    <form action="/IndexServices/Register.jsp">
+    <input type = "submit" value = "Join Us Now">
+    </form>
+    </center>
 </div>
 
 <footer>

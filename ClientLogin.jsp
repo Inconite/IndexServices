@@ -65,7 +65,7 @@ nav ul li a{
 }
 
 .bodycontent {
-	min-height: 750px;
+	min-height: 550px;
 	padding: 100px;
 }
 

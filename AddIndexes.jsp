@@ -152,7 +152,7 @@ footer .footermenu{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 50px;
-  width: 28%;
+  width: 33%;
   display: inline-block;
   
   
@@ -161,7 +161,7 @@ footer .footermenu{
 .space-s{
 	
 	display: inline-block;
-	width:33%;
+	width:28%;
 	color: transparent;
 }
 
@@ -202,7 +202,7 @@ input[type=submit] {
     width: 40%;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
+    padding: 18px 20px;
     margin: 50px 0px 0px 0px;
     border: none;
     border-radius: 4px;
@@ -225,9 +225,8 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
-    <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
-    <li><a href="Register.jsp">Registration</a></li>
+    <li><a href="/IndexServices/MDashboard.jsp">Manager Dashboard</a></li>
+    <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
   </nav>
 </header>
@@ -241,45 +240,16 @@ lol
 </div>
 
 <div class="reg-m">
-
-
-<%@ page import="java.sql.*"%>
-<%@ page import="javax.sql.*"%>
-<%
-
-String userid = request.getParameter("lid"); 
-String pwd = request.getParameter("psw"); 
-
-
-if(userid.equals("") || pwd.equals("")){
-	out.println("Please fill in all the details");
-}
-else{
-
-Class.forName("com.mysql.jdbc.Driver"); 
-java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
-Statement st = con.createStatement(); 
-ResultSet rs = st.executeQuery("select * from manager where lid = '"+userid+"'"); 
-if(rs.next()) 
-{ 
-if(rs.getString(4).equals(pwd)) 
-{ 
-	HttpSession sessiona = request.getSession();
-	session.setAttribute("user",userid);
-	session.setAttribute("psw",pwd);
-	response.sendRedirect("MDashboard.jsp");
-} 
-else 
-{
-out.println("Wrong Password"); 
-} 
-} 
-else{
-out.println("Wrong Username");
-}
-}
-%>
+  <form action="/IndexServices/AddIndNext.jsp">
   
+ <center> <h1 style="margin-bottom:50px;">Add Indexes</h1></center>
+ <label for="Iid">Index Id</label>
+ <input type="text" id="iid" name="iid" placeholder="Enter Index Id">
+ <label for="Iname">Index Name</label>
+ <input type="text" id="iname" name="iname" placeholder="Enter Index Name">
+ <center><input type="submit" value="Add Index"></center>
+ 
+  </form>
 </div>
 
 <div class="space-s">
