@@ -152,8 +152,9 @@ footer .footermenu{
   border-radius: 5px;
   background-color: #e9fbfa;
   padding: 50px;
-  width: 28%;
+  width: 38%;
   display: inline-block;
+  min-height: 250px;
   
   
 }
@@ -161,8 +162,14 @@ footer .footermenu{
 .space-s{
 	
 	display: inline-block;
-	width:33%;
+	width:25%;
 	color: transparent;
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 12px;
+    margin: 10px;
+    position: relative;
+    bottom: 300px;
 }
 
 input[type=text], select {
@@ -173,7 +180,7 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-      margin-bottom: 30px;
+     
 }
 
 input[type=password], select {
@@ -199,11 +206,10 @@ input[type=email], select {
 }
 
 input[type=submit] {
-    width: 40%;
+    width: auto;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin: 50px 0px 0px 0px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -214,6 +220,33 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+button {
+    padding: 5px 20px;
+}
+
+table{
+	width:100%;
+	font-family: sans-serif;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+td{
+	width:50%;
+	border: 1px solid #ddd;
+    padding: 8px 15px;
+    font-size: 15px;
+    
+}
+th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+}
 
 </style>
 <body>
@@ -225,9 +258,8 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
-    <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
-    <li><a href="Register.jsp">Registration</a></li>
+    <li><a href="/IndexServices/MDashboard.jsp">Manager Dashboard</a></li>
+    <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
   </nav>
 </header>
@@ -237,61 +269,66 @@ input[type=submit]:hover {
 <div class = "bodycontent">
 
 <div class="space-s">
-lol
+<form action="/IndexServices/MDashboard.jsp">
+<input type = "submit" value ="Go Back"/>
+</form>
 </div>
 
 <div class="reg-m">
 
 
-<%@ page import ="java.sql.*" %>
-<%@ page import ="javax.sql.*" %>
+<table>
+<tbody>
+<tr>
+<th>Index ID</th>
+<th>Index Name</th>
+</tr>
+
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.sql.*"%>
 <%
-String lid = request.getParameter("lid"); 
-String fname = request.getParameter("fname"); 
-String lname = request.getParameter("lname"); 
-String psw = request.getParameter("psw"); 
-String role = request.getParameter("role"); 
-String age = request.getParameter("age"); 
-String gender = request.getParameter("gender"); 
-String cnumber = request.getParameter("cnumber"); 
-String email = request.getParameter("email"); 
-String address = request.getParameter("address"); 
-String zip = request.getParameter("zip"); 
-String city = request.getParameter("city"); 
 
-if(lid.equals("") || fname.equals("") ||
-		lname.equals("") || psw.equals("") ||
-		role.equals("") || age.equals("") ||
-		gender.equals("") || cnumber.equals("") ||
-		email.equals("") || zip.equals("") || city.equals("")
-		){
-	
-	out.println("Please fill in all the details");
-}
-else{
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
+Statement st = con.createStatement();
+ResultSet rs = st.executeQuery("select * from indexes");
+while(rs.next())
+{
 
-Class.forName("com.mysql.jdbc.Driver"); 
-java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices",
-"root","root"); 
-Statement st= con.createStatement(); 
-ResultSet rs; 
+%>
+<tr>
 
-if(role.equals("client")){
-	int i = st.executeUpdate("insert into client values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
-}
-else{
-	int i = st.executeUpdate("insert into manager values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
-}
-
-out.println("Registration was successful! Now you can login.");
+    <td><%=rs.getString("IndexId") %></td>
+    <td><%=rs.getString("IndexName") %></td>
+</tr>
+    
+        <%
 
 }
 %>
+</tbody>
+    </table>
+    <%
+    rs.close();
+    st.close();
+    con.close();
+    }
+catch(Exception e)
+{
+    e.printStackTrace();
+    }
+
+%>
+
   
 </div>
 
 <div class="space-s">
-lol
+<form>
+<input type = "text" name="search" placeholder="Search" >
+</form>
 </div>
 
 </div>

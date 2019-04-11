@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 28%;
   display: inline-block;
@@ -246,10 +246,10 @@ lol
  <center> <h1 style="margin-bottom:50px;">Manager Login</h1></center>
   
   	<label for="lid">Login Id</label>
-    <input type="text" id="lid" name="lid" placeholder="Login Id..">
+    <input type="text" id="lid" name="lid" placeholder="Login Id.." required>
     
     <label for="pass">Password</label>
-    <input type="password" id="pass" name="psw" placeholder="Password..">
+    <input type="password" id="pass" name="psw" placeholder="Password.." required>
   
     <center><input type="submit" value="Login"></center>
   </form>

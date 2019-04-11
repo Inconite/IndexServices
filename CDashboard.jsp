@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 38%;
   display: inline-block;
@@ -166,8 +166,10 @@ footer .footermenu{
 	color: transparent;
 	border-radius: 4px;
 	background-color: #fff;
-	padding: 10px;
+	padding: 12px;
     margin: 10px;
+    position: relative;
+    bottom: 95px;
 }
 
 input[type=text], select {
@@ -178,7 +180,7 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-      margin-bottom: 30px;
+     
 }
 
 input[type=password], select {
@@ -204,11 +206,10 @@ input[type=email], select {
 }
 
 input[type=submit] {
-    width: 40%;
+    width: auto;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin: 50px 0px 0px 0px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -244,8 +245,8 @@ button {
 <div class = "bodycontent">
 
 <div class="space-s">
-<form action="/IndexServices/AddStock.jsp">
-<input type = "submit" value ="Add Stock"/>
+<form action="/IndexServices/CViewIndexes.jsp">
+<input type = "submit" value ="View Indexes"/>
 </form>
 </div>
 
@@ -264,7 +265,7 @@ if(userid1 == null || pwd == null){
 	out.println("<p>You do not have access to this page. You need to be logged in first.</p>");
 }
 else{
-out.println("<h1>Welcome</h1> " + userid1 + " " + pwd);
+out.println("<h1>Welcome</h1> " + userid1 );
 
 }
 

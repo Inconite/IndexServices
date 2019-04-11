@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 20px;
   width: 58%;
   display: inline-block;

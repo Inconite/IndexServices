@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 45%;
   display: inline-block;
@@ -246,16 +246,16 @@ lol
  <center> <h1 style="margin-bottom:50px;">User Registration From</h1></center>
   
   	<label for="lid">Login Id</label>
-    <input type="text" id="lid" name="lid" placeholder="Login Id..">
+    <input type="text" required pattern="[0-9 a-z A-Z]{5,10}"title ="Login Id must be atleast 5 characters long" id="lid" name="lid" placeholder="Login Id.." />
   
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="fname" placeholder="Your name..">
+    <input type="text" required pattern="[a-z A-Z]{2,20}"title ="Characters a-z,A-Z are allowed" id="fname" name="fname" placeholder="Your name.."/>
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lname" placeholder="Your last name..">
+    <input type="text" required pattern="[a-z A-Z]{2,20}"title ="Characters a-z,A-Z are allowed" id="lname" name="lname" placeholder="Your last name.."/>
     
     <label for="pass">Password</label>
-    <input type="password" id="pass" name="psw" placeholder="Password..">
+    <input type="password" required pattern="[a-z A-Z 0-9]{3,20}"title ="Atleast 5 characters required"  id="pass" name="psw" placeholder="Password.."/>
 
     <label for="role">Role</label>
     <select id="role" name="role">
@@ -264,7 +264,7 @@ lol
     </select>
     
     <label for="age">Age</label>
-    <input type="text" id="age" name="age" placeholder="Your Age..">
+    <input type="text"  required pattern="[0-9]{1,3}" title ="Enter your Age. It should be in numbers" id="age" name="age" placeholder="Your Age.."/>
     
     <label for="gender">Gender</label>
     <select id="gender" name="gender">
@@ -274,19 +274,19 @@ lol
     </select>
     
     <label for="number">Contact Number</label>
-    <input type="text" id="number" name="cnumber" placeholder="Contact number..">
+    <input type="text" required pattern="[0-9]{10}"title ="Invalid number" id="number" name="cnumber" placeholder="Contact number.."/>
     
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Your email..">
+    <input type="email" id="email" name="email" placeholder="Your email.." required />
     
     <label for="address">Address</label>
-    <input type="text" id="address" name="address" placeholder="Your Address..">
+    <input type="text" id="address" name="address" placeholder="Your Address.." required />
     
     <label for="zip">ZIP</label>
-    <input type="text" id="zip" name="zip" placeholder="Zip code..">
+    <input type="text" id="zip" name="zip" placeholder="Zip code.." required />
     
     <label for="city">City</label>
-    <input type="text" id="city" name="city" placeholder="Your City..">
+    <input type="text" id="city" name="city" placeholder="Your City.." required />
   
     <center><input type="submit" value="Register"></center>
   </form>

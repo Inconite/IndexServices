@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 28%;
   display: inline-block;
@@ -246,7 +246,7 @@ lol
 session.invalidate();
 %>
 
-<h3>You have been logged out successfully....</h3>
+<p>You have been logged out successfully....</p>
   
   
 </div>

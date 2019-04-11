@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 28%;
   display: inline-block;
@@ -265,8 +265,8 @@ if(rs.next())
 if(rs.getString(4).equals(pwd)) 
 { 
 	HttpSession sessiona = request.getSession();
-	session.setAttribute("user",userid);
-	session.setAttribute("psw",pwd);
+	session.setAttribute("muser",userid);
+	session.setAttribute("mpsw",pwd);
 	response.sendRedirect("MDashboard.jsp");
 } 
 else 

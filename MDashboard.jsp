@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 38%;
   display: inline-block;
@@ -166,7 +166,7 @@ footer .footermenu{
 	color: transparent;
 	border-radius: 4px;
 	background-color: #fff;
-	padding: 10px;
+	padding: 12px;
     margin: 10px;
 }
 
@@ -204,11 +204,11 @@ input[type=email], select {
 }
 
 input[type=submit] {
-    width: 40%;
+    width: auto;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin: 50px 0px 0px 0px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -244,14 +244,22 @@ button {
 <div class = "bodycontent">
 
 <div class="space-s">
+
+<div class="space-s-1">
 <form action="/IndexServices/AddIndexes.jsp">
 <input type = "submit" value ="Add Index"/>
 </form>
+
+<form action="/IndexServices/MViewIndexes.jsp">
+<input type = "submit" value ="View Indexes"/>
+</form>
+
 <form action="/IndexServices/AddStock.jsp">
 <input type = "submit" value ="Add Stock"/>
 </form>
-</div>
 
+</div>
+</div>
 <div class="reg-m">
 
 
@@ -260,8 +268,8 @@ button {
 <%
 
 
-String userid1 = (String)session.getAttribute("user");
-String pwd = (String)session.getAttribute("psw");
+String userid1 = (String)session.getAttribute("muser");
+String pwd = (String)session.getAttribute("mpsw");
 
 if(userid1 == null || pwd == null){
 	out.println("<p>You do not have access to this page. You need to be logged in first.</p>");

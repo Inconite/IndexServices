@@ -225,9 +225,8 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
-    <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
-    <li><a href="Register.jsp">Registration</a></li>
+    <li><a href="/IndexServices/MDashboard.jsp">Manager Dashboard</a></li>
+    <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
   </nav>
 </header>
@@ -246,24 +245,18 @@ lol
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%
-String lid = request.getParameter("lid"); 
-String fname = request.getParameter("fname"); 
-String lname = request.getParameter("lname"); 
-String psw = request.getParameter("psw"); 
-String role = request.getParameter("role"); 
-String age = request.getParameter("age"); 
-String gender = request.getParameter("gender"); 
-String cnumber = request.getParameter("cnumber"); 
-String email = request.getParameter("email"); 
-String address = request.getParameter("address"); 
-String zip = request.getParameter("zip"); 
-String city = request.getParameter("city"); 
+String lid = request.getParameter("IndexId"); 
+String fname = request.getParameter("FundId"); 
+String lname = request.getParameter("Fname"); 
+String psw = request.getParameter("Fprice"); 
+String role = request.getParameter("Edate"); 
+String age = request.getParameter("MinThr"); 
+String gender = request.getParameter("MaxThr");  
 
 if(lid.equals("") || fname.equals("") ||
 		lname.equals("") || psw.equals("") ||
 		role.equals("") || age.equals("") ||
-		gender.equals("") || cnumber.equals("") ||
-		email.equals("") || zip.equals("") || city.equals("")
+		gender.equals("")
 		){
 	
 	out.println("Please fill in all the details");
@@ -276,14 +269,9 @@ java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:33
 Statement st= con.createStatement(); 
 ResultSet rs; 
 
-if(role.equals("client")){
-	int i = st.executeUpdate("insert into client values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
-}
-else{
-	int i = st.executeUpdate("insert into manager values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"','"+cnumber+"', '"+email+"','"+address+"','"+zip+"','"+city+"' )"); 
-}
+	int i = st.executeUpdate("insert into stock values ('"+lid+"','"+fname+"','"+lname+"','"+psw+"','"+role+"','"+age+"','"+gender+"')"); 
 
-out.println("Registration was successful! Now you can login.");
+out.println("Stock Was Added Successfully...");
 
 }
 %>

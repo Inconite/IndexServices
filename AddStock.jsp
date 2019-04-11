@@ -150,10 +150,11 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 45%;
   display: inline-block;
+  
   
   
 }
@@ -163,6 +164,8 @@ footer .footermenu{
 	display: inline-block;
 	width:24%;
 	color: transparent;
+	    position: relative;
+    bottom: 500px;
 }
 
 input[type=text], select {
@@ -199,10 +202,10 @@ input[type=email], select {
 }
 
 input[type=submit] {
-    width: 40%;
+    width: auto;
     background-color: #4CAF50;
     color: white;
-    padding: 18px 20px;
+    padding: 14px 20px;
     margin: 50px 0px 0px 0px;
     border: none;
     border-radius: 4px;
@@ -240,13 +243,11 @@ lol
 </div>
 
 <div class="reg-m">
-  <form action="/IndexServices/RegNext.jsp">
+  <form action="/IndexServices/AddStockNext.jsp">
   
  <center> <h1 style="margin-bottom:50px;">Add Stock Details</h1></center>
  <label for="Iid">Index Id</label>
  <input type="text" id="Iid" name="IndexId" placeholder="Enter Index Id">
- <label for="Iname">Index Name</label>
- <input type="text" id="Iname" name="Indexname" placeholder="Enter Index Name">
  <label for="Fid">Fund Id</label>
  <input type="text" id="Fid" name="FundId" placeholder="Enter Fund Id">
  <label for="Fname">Fund Name</label>
@@ -265,7 +266,11 @@ lol
 </div>
 
 <div class="space-s">
-lol
+<center>
+<form action="/IndexServices/MDashboard.jsp">
+<input type = "submit" value ="Go Back"/>
+</form>
+</center>
 </div>
 
 </div>

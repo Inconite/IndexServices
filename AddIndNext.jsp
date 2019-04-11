@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 28%;
   display: inline-block;
@@ -225,9 +225,8 @@ input[type=submit]:hover {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/ManagerLogin.jsp">Manager Login</a></li>
-    <li><a href="/IndexServices/ClientLogin.jsp">Client Login</a></li>
-    <li><a href="Register.jsp">Registration</a></li>
+    <li><a href="/IndexServices/MDashboard.jsp">Manager Dashboard</a></li>
+    <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
   </nav>
 </header>
@@ -246,6 +245,7 @@ lol
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%
+
 String iid = request.getParameter("iid"); 
 String iname = request.getParameter("iname"); 
 
@@ -261,12 +261,18 @@ java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:33
 Statement st= con.createStatement(); 
 ResultSet rs; 
 
-	int i = st.executeUpdate("insert into indexes values ('"+iid+"','"+iname+"')"); 
+	int i = st.executeUpdate("insert into indexes values ('"+iid+"','"+iname+"')");
 
 out.println("Index was added successfully");
 
 }
 %>
+
+<center>
+<form action="/IndexServices/AddIndexes.jsp">
+<input type = "submit" value ="Go Back"/>
+</form>
+</center>
   
 </div>
 

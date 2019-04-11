@@ -150,7 +150,7 @@ footer .footermenu{
 
 .reg-m {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #e9fbfa;
   padding: 50px;
   width: 33%;
   display: inline-block;
@@ -199,10 +199,10 @@ input[type=email], select {
 }
 
 input[type=submit] {
-    width: 40%;
+    width: auto;
     background-color: #4CAF50;
     color: white;
-    padding: 18px 20px;
+    padding: 14px 20px;
     margin: 50px 0px 0px 0px;
     border: none;
     border-radius: 4px;
@@ -236,24 +236,32 @@ input[type=submit]:hover {
 <div class = "bodycontent">
 
 <div class="space-s">
-lol
 </div>
 
 <div class="reg-m">
-  <form action="/IndexServices/AddIndNext.jsp">
+
+
+
+  <form action="/IndexServices/AddIndNext.jsp" method="POST">
   
  <center> <h1 style="margin-bottom:50px;">Add Indexes</h1></center>
  <label for="Iid">Index Id</label>
- <input type="text" id="iid" name="iid" placeholder="Enter Index Id">
+ <input type="text" id="iid" name="iid" placeholder="Enter Index Id" required pattern="[A-Z]{3, 5}" title ="5 Chacters Only. A-Z allowed." />
  <label for="Iname">Index Name</label>
- <input type="text" id="iname" name="iname" placeholder="Enter Index Name">
+ <input type="text" id="iname" name="iname" placeholder="Enter Index Name" required pattern="[a-z A-Z 0-9]{3,20}"title ="Atleast 2 characters required" />
  <center><input type="submit" value="Add Index"></center>
  
   </form>
+  
+ 
 </div>
 
 <div class="space-s">
-lol
+<center>
+<form action="/IndexServices/MDashboard.jsp">
+<input type = "submit" value ="Go Back"/>
+</form>
+</center>
 </div>
 
 </div>
