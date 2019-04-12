@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
 <title>Index Services</title>
 </head>
  <style>
@@ -144,7 +145,7 @@ footer .footermenu{
 
 <header>
   <div class = "logo">
-    <a href="/IndexServices"><img src = "http://refbankers.com/logo1.png"></a>
+    <a href="/IndexServices"><img src = "http://refbankers.com/indexservices/logo.png"></a>
   </div>
   <nav>
   <ul>

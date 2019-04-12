@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
+
 <title>Index Services</title>
 </head>
 <style>
 
 body{
 	background-color: #17827d;
+	background-image: url("http://refbankers.com/images/background.png");
 }
 
 header {
@@ -223,7 +226,7 @@ input[type=submit]:hover {
 
 <header>
   <div class = "logo">
-    <a href="/IndexServices"><img src = "http://refbankers.com/logo1.png"></a>
+    <a href="/IndexServices"><img src = "http://refbankers.com/indexservices/logo.png"></a>
   </div>
   <nav>
   <ul>
@@ -247,19 +250,19 @@ lol
   
  <center> <h1 style="margin-bottom:50px;">Add Stock Details</h1></center>
  <label for="Iid">Index Id</label>
- <input type="text" id="Iid" name="IndexId" placeholder="Enter Index Id">
+ <input type="text" id="Iid" name="IndexId" placeholder="Enter Index Id" required pattern="[0-9 a-z A-Z]{3,10}"title ="Id must be atleast 3 characters long" />
  <label for="Fid">Fund Id</label>
- <input type="text" id="Fid" name="FundId" placeholder="Enter Fund Id">
+ <input type="text" id="Fid" name="FundId" placeholder="Enter Fund Id" required pattern="[0-9]{4}"title ="Fund Id must contain only 4 numbers" />
  <label for="Fname">Fund Name</label>
- <input type="text" id="Fname" name="Fname" placeholder="Enter Fund Name">
+ <input type="text" id="Fname" name="Fname" placeholder="Enter Fund Name" required pattern="[0-9 a-z A-Z]{3,30}"title ="Name must be atleast 3 characters long" />
  <label for="Fprice">Fund Price</label>
- <input type="text" id="Fprice" name="Fprice" placeholder="Enter Fund Price">
+ <input type="text" id="Fprice" name="Fprice" placeholder="Enter Fund Price" required pattern="[0-9]{1,10}"title ="Only Numbers Allowed" />
  <label for="Edate">Effective Date</label>
- <input type="text" id="Edate" name="Edate" placeholder="Enter Effective Date">
+ <input type="text" id="Edate" name="Edate" placeholder="Enter Effective Date. Eg: 11 Apr 2019" required pattern="[0-9 a-z A-Z]{3,30}"title ="Allowed Format: eg: 11 April 2019" />
  <label for="MinTh">Minimum Threshold</label>
- <input type="text" id="MinTh" name="MinThr" placeholder="Enter Minimum Threshold">
+ <input type="text" id="MinTh" name="MinThr" placeholder="Enter Minimum Threshold" required pattern="[0-9]{1,10}"title ="Only Numbers Allowed" />
  <label for="MaxTh">Maximum Threshold</label>
- <input type="text" id="MaxTh" name="MaxThr" placeholder="Enter Maximum Threshold">
+ <input type="text" id="MaxTh" name="MaxThr" placeholder="Enter Maximum Threshold" required pattern="[0-9]{1,10}"title ="Only Numbers Allowed" />
  <center><input type="submit" value="Add Stock"></center>
  
   </form>

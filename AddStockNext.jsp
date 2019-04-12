@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
+
 <title>Index Services</title>
 </head>
 <style>
 
 body{
 	background-color: #17827d;
+	background-image: url("http://refbankers.com/images/background.png");
 }
 
 header {
@@ -220,7 +223,7 @@ input[type=submit]:hover {
 
 <header>
   <div class = "logo">
-    <a href="/IndexServices"><img src = "http://refbankers.com/logo1.png"></a>
+    <a href="/IndexServices"><img src = "http://refbankers.com/indexservices/logo.png"></a>
   </div>
   <nav>
   <ul>
@@ -275,6 +278,12 @@ out.println("Stock Was Added Successfully...");
 
 }
 %>
+
+<center>
+<form action="/IndexServices/AddStock.jsp">
+<input type = "submit" value ="Go Back"/>
+</form>
+</center>
   
 </div>
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
+ <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
 
 <title>Index Services</title>
 </head>
@@ -172,7 +172,7 @@ footer .footermenu{
 	padding: 12px;
     margin: 10px;
     position: relative;
-    bottom: 95px;
+    bottom: 300px;
 }
 
 input[type=text], select {
@@ -219,12 +219,48 @@ input[type=submit] {
     font-size: 26px;
 }
 
+button{
+	width: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 26px;
+}
+
+
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
 button {
     padding: 5px 20px;
+}
+
+table{
+	width:100%;
+	font-family: sans-serif;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+td{
+	width:50%;
+	border: 1px solid #ddd;
+    padding: 8px 15px;
+    font-size: 15px;
+    
+}
+th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
 }
 
 </style>
@@ -237,7 +273,6 @@ button {
   <nav>
   <ul>
     <li><a href="/IndexServices">Home</a></li>
-    <li><a href="/IndexServices/CDashboard.jsp">Client Dashboard</a></li>
     <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
   </nav>
@@ -248,31 +283,63 @@ button {
 <div class = "bodycontent">
 
 <div class="space-s">
-<form action="/IndexServices/CViewIndexes.jsp">
-<input type = "submit" value ="View Indexes"/>
-</form>
+<button type="button" name="back" onclick="history.back()"> Go Back</button>
 </div>
 
 <div class="reg-m">
 
 
+<table>
+<tbody>
+<tr>
+<th>Index ID</th>
+<th>Index Name</th>
+</tr>
+
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
 <%
 
+String search = request.getParameter("search"); 
+int c = 0;
 
-String userid1 = (String)session.getAttribute("user");
-String pwd = (String)session.getAttribute("psw");
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
+Statement st = con.createStatement();
+ResultSet rs = st.executeQuery("select * from indexes where IndexName = '"+search+"'");
 
-if(userid1 == null || pwd == null){
-	out.println("<p>You do not have access to this page. You need to be logged in first.</p>");
+while(rs.next())
+{
+	c++;
+%>
+<tr>
+
+    <td><%=rs.getString("IndexId") %></td>
+    <td><%=rs.getString("IndexName") %></td>
+</tr>
+    
+        <%
+
 }
-else{
-out.println("<h1>Welcome</h1> " + userid1 );
-out.println("</br></br> ");
-out.println("</br>You can view Indexes and Stocks from this page.");
 
+if(c==0){
+	out.println("<td>Nothing found</td>");
 }
+
+%>
+</tbody>
+    </table>
+    <%
+    rs.close();
+    st.close();
+    con.close();
+    }
+catch(Exception e)
+{
+    e.printStackTrace();
+    }
 
 %>
 
@@ -280,9 +347,9 @@ out.println("</br>You can view Indexes and Stocks from this page.");
 </div>
 
 <div class="space-s">
-
+<form>
 <form action="/IndexServices/Search.jsp">
-<input type = "text" name="search" placeholder="Search Indexes..." >
+<input type = "text" name="search" placeholder="Search Indexes.." >
 </form>
 </div>
 

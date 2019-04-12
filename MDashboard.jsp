@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
+
 <title>Index Services</title>
 </head>
 <style>
 
 body{
 	background-color: #17827d;
+	background-image: url("http://refbankers.com/images/background.png");
 }
 
 header {
@@ -228,7 +231,7 @@ button {
 
 <header>
   <div class = "logo">
-    <a href="/IndexServices"><img src = "http://refbankers.com/logo1.png"></a>
+    <a href="/IndexServices"><img src = "http://refbankers.com/indexservices/logo.png"></a>
   </div>
   <nav>
   <ul>
@@ -275,8 +278,9 @@ if(userid1 == null || pwd == null){
 	out.println("<p>You do not have access to this page. You need to be logged in first.</p>");
 }
 else{
-out.println("<h1>Welcome</h1> " + userid1 + " " + pwd);
-
+out.println("<h1>Welcome</h1> " + userid1);
+out.println("</br></br> ");
+out.println("</br>You can Add Indexes and Stocks from this page.");
 }
 
 %>
@@ -285,8 +289,8 @@ out.println("<h1>Welcome</h1> " + userid1 + " " + pwd);
 </div>
 
 <div class="space-s">
-<form>
-<input type = "text" name="search" placeholder="Search" >
+<form action="/IndexServices/Search.jsp">
+<input type = "text" name="search" placeholder="Search Indexes..." >
 </form>
 </div>
 

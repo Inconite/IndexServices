@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/8/88/Microsoft_Tips_icon.png" type="image/gif" sizes="16x16">
+
 <title>Index Services</title>
 </head>
 <style>
 
 body{
 	background-color: #17827d;
+	background-image: url("http://refbankers.com/images/background.png");
 }
 
 header {
@@ -253,7 +256,7 @@ th {
 
 <header>
   <div class = "logo">
-    <a href="/IndexServices"><img src = "http://refbankers.com/logo1.png"></a>
+    <a href="/IndexServices"><img src = "http://refbankers.com/indexservices/logo.png"></a>
   </div>
   <nav>
   <ul>
@@ -326,8 +329,8 @@ catch(Exception e)
 </div>
 
 <div class="space-s">
-<form>
-<input type = "text" name="search" placeholder="Search" >
+<form action="/IndexServices/Search.jsp">
+<input type = "text" name="search" placeholder="Search Indexes.." >
 </form>
 </div>
 
