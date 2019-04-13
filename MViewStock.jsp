@@ -155,8 +155,10 @@ footer .footermenu{
   border-radius: 5px;
   background-color: #e9fbfa;
   padding: 50px;
-  width: 33%;
+  width: 68%;
   display: inline-block;
+  min-height: 250px;
+  
   
   
 }
@@ -164,8 +166,14 @@ footer .footermenu{
 .space-s{
 	
 	display: inline-block;
-	width:28%;
+	width:10%;
 	color: transparent;
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 12px;
+    margin: 10px;
+    position: relative;
+    bottom: 290px;
 }
 
 input[type=text], select {
@@ -176,7 +184,7 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-      margin-bottom: 30px;
+     
 }
 
 input[type=password], select {
@@ -205,8 +213,7 @@ input[type=submit] {
     width: auto;
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin: 50px 0px 0px 0px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -217,6 +224,33 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+button {
+    padding: 5px 20px;
+}
+
+table{
+	width:100%;
+	font-family: sans-serif;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+td{
+	width:auto;
+	border: 1px solid #ddd;
+    padding: 8px 15px;
+    font-size: 15px;
+    
+}
+th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+}
 
 </style>
 <body>
@@ -238,33 +272,84 @@ input[type=submit]:hover {
 
 <div class = "bodycontent">
 
-<div class="space-s">
-<center>
+<div class="space-s" style="background-color:transparent;">
 <form action="/IndexServices/MDashboard.jsp">
 <input type = "submit" value ="Go Back"/>
 </form>
-</center>
 </div>
 
 <div class="reg-m">
 
 
+<table>
+<tbody>
+<tr>
+<th>Index ID</th>
+<th>Fund ID</th>
+<th>Fund Name</th>
+<th>Fund Price</th>
+<th>E Date</th>
+<th>Min Threshold</th>
+<th>Max Threshold</th>
+</tr>
 
-  <form action="/IndexServices/AddIndNext.jsp" method="POST">
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.sql.*"%>
+<%
+
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
+Statement st = con.createStatement();
+ResultSet rs = st.executeQuery("select * from stock");
+while(rs.next())
+{
+
+%>
+<tr>
+
+    <td><%=rs.getString("IndexId") %></td>
+    <td><%=rs.getString("FundId") %></td>
+    <td><%=rs.getString("Fname") %></td>
+    <td><%=rs.getString("Fprice") %></td>
+    <td><%=rs.getString("Edate") %></td>
+    <td><%=rs.getString("MinThr") %></td>
+    <td><%=rs.getString("MaxThr") %></td>
+</tr>
+    
+        <%
+
+}
+%>
+</tbody>
+    </table>
+    <%
+    rs.close();
+    st.close();
+    con.close();
+    }
+catch(Exception e)
+{
+    e.printStackTrace();
+    }
+
+%>
+<div class = "button-ad" style="margin-top:60px;">
+<form style="float:left;" action="/IndexServices/AddStock.jsp">
+<input type = "submit" value ="Add Stock" >
+</form>
+<form style="float:right;" action="#">
+<input type = "submit" value ="Delete Stock" >
+</form>
+</div>
   
- <center> <h1 style="margin-bottom:50px;">Add Indexes</h1></center>
- <label for="Iid">Index Id</label>
- <input type="text" id="iid" name="iid" placeholder="Enter Index Id" required pattern="[A-Z]{3, 5}" title ="5 Chacters Only. A-Z allowed." />
- <label for="Iname">Index Name</label>
- <input type="text" id="iname" name="iname" placeholder="Enter Index Name" required pattern="[a-z A-Z 0-9]{3,20}"title ="Atleast 2 characters required" />
- <center><input type="submit" value="Add Index"></center>
- 
-  </form>
-  
- 
 </div>
 
 <div class="space-s">
+<form action="/IndexServices/Search.jsp">
+<input type = "text" name="search" placeholder="Search Stocks.." >
+</form>
 </div>
 
 </div>

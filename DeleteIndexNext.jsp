@@ -155,7 +155,7 @@ footer .footermenu{
   border-radius: 5px;
   background-color: #e9fbfa;
   padding: 50px;
-  width: 33%;
+  width: 28%;
   display: inline-block;
   
   
@@ -164,7 +164,7 @@ footer .footermenu{
 .space-s{
 	
 	display: inline-block;
-	width:28%;
+	width:33%;
 	color: transparent;
 }
 
@@ -202,7 +202,7 @@ input[type=email], select {
 }
 
 input[type=submit] {
-    width: auto;
+    width: 40%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -217,6 +217,17 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+button{
+	width: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 26px;
+}
+
 
 </style>
 <body>
@@ -227,7 +238,7 @@ input[type=submit]:hover {
   </div>
   <nav>
   <ul>
-    <li><a href="/IndexServices">Home</a></li>
+   <li><a href="/IndexServices">Home</a></li>
     <li><a href="/IndexServices/MDashboard.jsp">Manager Dashboard</a></li>
     <li><a href="/IndexServices/Logout.jsp">Logout</a></li>
   </ul>
@@ -239,32 +250,34 @@ input[type=submit]:hover {
 <div class = "bodycontent">
 
 <div class="space-s">
-<center>
-<form action="/IndexServices/MDashboard.jsp">
-<input type = "submit" value ="Go Back"/>
-</form>
-</center>
+<button type="button" name="back" onclick="history.back()"> Go Back</button>
+
 </div>
 
 <div class="reg-m">
 
+<%@ page import ="java.sql.*" %>
+<%@ page import ="javax.sql.*" %>
+<%
 
+String Delid = request.getParameter("indexid");
 
-  <form action="/IndexServices/AddIndNext.jsp" method="POST">
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/indexservices","root","root"); 
+Statement st = con.createStatement(); 
+int i = st.executeUpdate("DELETE FROM indexes WHERE IndexId = '"+Delid+"' ");
+
+if(i == 1){
+	out.println("<b>Success:</b> "+Delid + " Was Deleted Successfully....");
+}else{
+	out.println( "<b>Failed:</b> " +Delid + " was not found in the Database.");
+}
+%>
   
- <center> <h1 style="margin-bottom:50px;">Add Indexes</h1></center>
- <label for="Iid">Index Id</label>
- <input type="text" id="iid" name="iid" placeholder="Enter Index Id" required pattern="[A-Z]{3, 5}" title ="5 Chacters Only. A-Z allowed." />
- <label for="Iname">Index Name</label>
- <input type="text" id="iname" name="iname" placeholder="Enter Index Name" required pattern="[a-z A-Z 0-9]{3,20}"title ="Atleast 2 characters required" />
- <center><input type="submit" value="Add Index"></center>
- 
-  </form>
-  
- 
 </div>
 
 <div class="space-s">
+lol
 </div>
 
 </div>

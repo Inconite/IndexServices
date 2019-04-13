@@ -160,6 +160,7 @@ footer .footermenu{
   min-height: 250px;
   
   
+  
 }
 
 .space-s{
@@ -172,7 +173,7 @@ footer .footermenu{
 	padding: 12px;
     margin: 10px;
     position: relative;
-    bottom: 300px;
+    bottom: 290px;
 }
 
 input[type=text], select {
@@ -271,7 +272,7 @@ th {
 
 <div class = "bodycontent">
 
-<div class="space-s">
+<div class="space-s" style="background-color:transparent;">
 <form action="/IndexServices/MDashboard.jsp">
 <input type = "submit" value ="Go Back"/>
 </form>
@@ -324,7 +325,14 @@ catch(Exception e)
     }
 
 %>
-
+<div class = "button-ad" style="margin-top:60px;">
+<form style="float:left;" action="/IndexServices/AddIndexes.jsp">
+<input type = "submit" value ="Add Index" >
+</form>
+<form style="float:right;" action="/IndexServices/DeleteIndex.jsp">
+<input type = "submit" value ="Delete Index" >
+</form>
+</div>
   
 </div>
 

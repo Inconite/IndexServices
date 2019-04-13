@@ -242,7 +242,11 @@ input[type=submit]:hover {
 <div class = "bodycontent">
 
 <div class="space-s">
-lol
+<center>
+<form action="/IndexServices/MDashboard.jsp">
+<input type = "submit" value ="Go Back"/>
+</form>
+</center>
 </div>
 
 <div class="reg-m">
@@ -269,11 +273,6 @@ lol
 </div>
 
 <div class="space-s">
-<center>
-<form action="/IndexServices/MDashboard.jsp">
-<input type = "submit" value ="Go Back"/>
-</form>
-</center>
 </div>
 
 </div>

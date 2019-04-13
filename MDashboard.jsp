@@ -246,19 +246,16 @@ button {
 
 <div class = "bodycontent">
 
-<div class="space-s">
+<div class="space-s" style="background-color:transparent">
 
-<div class="space-s-1">
-<form action="/IndexServices/AddIndexes.jsp">
-<input type = "submit" value ="Add Index"/>
-</form>
+<div class="space-s-1" >
 
 <form action="/IndexServices/MViewIndexes.jsp">
 <input type = "submit" value ="View Indexes"/>
 </form>
 
-<form action="/IndexServices/AddStock.jsp">
-<input type = "submit" value ="Add Stock"/>
+<form action="/IndexServices/MViewStock.jsp">
+<input type = "submit" value ="View Stocks"/>
 </form>
 
 </div>
